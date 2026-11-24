@@ -34,7 +34,7 @@ $('download').onclick=()=>{if(!result)return;const rows=[['산업코드','산업
 
 async function loadDefaultWorkbook(){
  try {
-  $('status').textContent='기본 Excel 내려받는 중…';
+ fetch('./data/io-2023.xlsx');
   const response=await fetch('./data/io-2023.xlsx');
   if(!response.ok)throw Error('기본 Excel 다운로드 실패 (HTTP '+response.status+')');
   await load(await response.arrayBuffer());
